@@ -16,6 +16,12 @@ private:
 	//テクスチャファイルを読み込む
 	void LoadWICTextureFromFile(const std::string& filePath);
 
+	//フォルダパスとファイル名を分離する
+	void SeparateFilePath(const std::wstring& filePath);
+
+	//DDSテクスチャとしてのだいる書き出し
+	void SaveDDSTectureToFile();
+
 	//マルチバイト文字をワイド文字に変換(DirextTexはワイド文字列でファイルパスを渡すため)
 	static std::wstring ConvertMultiByteStringToWideString(const std::string& mString);
 
@@ -23,5 +29,12 @@ private:
 	DirectX::TexMetadata metadata_;
 	//画像イメージのこんてな
 	DirectX::ScratchImage scratchImage_;
+
+	//ディレクトリパス
+	std::wstring directoryPath_;
+	//ファイル名
+	std::wstring fileName_;
+	//ファイル拡張子
+	std::wstring fileExt_;
 };
 
